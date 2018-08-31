@@ -1,4 +1,11 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(377,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  Application.cpp
+c:\users\ceani\desktop\c++\gamepong\src\application.cpp(217): warning C4244: 'argument': conversion from 'double' to 'Uint32', possible loss of data
   main.cpp
-c:\users\ceani\desktop\c++\gamepong\src\main.cpp(263): warning C4244: 'argument': conversion from 'double' to 'Uint32', possible loss of data
-  GamePong.vcxproj -> C:\Users\ceani\Desktop\c++\GamePong\project\..\bin\GamePong.exe
+  Shared.cpp
+  Sound.cpp
+c:\users\ceani\desktop\c++\gamepong\src\sound.cpp(11): warning C4305: 'return': truncation from 'int' to 'bool'
+  Texture.cpp
+  Generating Code...
+Application.obj : error LNK2019: unresolved external symbol "public: __thiscall Sound::~Sound(void)" (??1Sound@@QAE@XZ) referenced in function "public: void __thiscall Application::EventDriven(void)" (?EventDriven@Application@@QAEXXZ)
+..\bin\GamePong.exe : fatal error LNK1120: 1 unresolved externals

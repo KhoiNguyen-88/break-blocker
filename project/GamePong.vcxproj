@@ -78,10 +78,10 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\ceani\Desktop\c++\GamePong\lib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\lib\SDL2\include;$(SolutionDir)..\lib\SDL2_mixer\include;$(SolutionDir)..\lib\SDL2_image\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\Users\ceani\Desktop\c++\GamePong\lib\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\lib\SDL2_mixer\lib;$(SolutionDir)..\lib\SDL2_image\lib;$(SolutionDir)..\lib\SDL2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -122,7 +122,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\Application.cpp" />
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\Shared.cpp" />
+    <ClCompile Include="..\src\Sound.cpp" />
+    <ClCompile Include="..\src\Texture.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Image\bg.png" />
+    <Image Include="..\Image\magic_ball.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\Application.h" />
+    <ClInclude Include="..\src\config.h" />
+    <ClInclude Include="..\src\Header.h" />
+    <ClInclude Include="..\src\Shared.h" />
+    <ClInclude Include="..\src\Sound.h" />
+    <ClInclude Include="..\src\Texture.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\data\Sound\smb_gameover.wav" />
+    <Media Include="..\data\Sound\smb_kick.wav" />
+    <Media Include="..\data\Sound\smb_mariodie.wav" />
+    <Media Include="..\data\Sound\smb_stage_clear.wav" />
+    <Media Include="..\data\Sound\smb_warning.wav" />
+    <Media Include="..\data\Sound\smb_world_clear.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

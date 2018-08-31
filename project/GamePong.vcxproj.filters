@@ -13,10 +13,73 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Resource Files\Sound">
+      <UniqueIdentifier>{6ea79ce9-ea54-40dd-a483-79869f213bcb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Sound.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Shared.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Image\bg.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Image\magic_ball.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\Application.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Sound.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Header.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Shared.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\data\Sound\smb_gameover.wav">
+      <Filter>Resource Files\Sound</Filter>
+    </Media>
+    <Media Include="..\data\Sound\smb_kick.wav">
+      <Filter>Resource Files\Sound</Filter>
+    </Media>
+    <Media Include="..\data\Sound\smb_mariodie.wav">
+      <Filter>Resource Files\Sound</Filter>
+    </Media>
+    <Media Include="..\data\Sound\smb_stage_clear.wav">
+      <Filter>Resource Files\Sound</Filter>
+    </Media>
+    <Media Include="..\data\Sound\smb_warning.wav">
+      <Filter>Resource Files\Sound</Filter>
+    </Media>
+    <Media Include="..\data\Sound\smb_world_clear.wav">
+      <Filter>Resource Files\Sound</Filter>
+    </Media>
   </ItemGroup>
 </Project>
