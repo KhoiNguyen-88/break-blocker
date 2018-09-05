@@ -21,6 +21,12 @@ void Application::Init() {
 		SDL_Log("IMG_Init: %s\n", IMG_GetError());
 	}
 
+	//Init SDL_mixer
+	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) == -1)
+	{
+		SDL_Log("%s", Mix_GetError());
+	}
+
 	m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED);
 	if (m_renderer == NULL)
 	{
@@ -36,32 +42,44 @@ void Application::Init() {
 	m_background = new Texture();
 	m_background->Load("bg.png");
 
+	// load sound for the racket
 	m_sound = new Sound();
-	m_sound->Load("smb_kick.wav");
+	m_sound->Load("Sound/smb_kick.wav");
 
-	// set default value for brick
-	dst.x = WIDTH / 2;
-	dst.y = HEIGHT / 2;
-	dst.w = 40;
-	dst.h = 40;
+	// load music background
+	m_music = new Music();
+	m_music->LoadMusic("Music/bgMusic.mp3");
+
+	m_music->PlayMusic();
+	
+	// load sprite
+	m_SpriteFireBall = new Texture();
+	m_SpriteFireBall->Load("fireball.png");
+
+	currentFrameIndex = 0;
+
+	// set default value for ball
+	dst.x = BALL_X;
+	dst.y = BALL_Y;
+	dst.w = BALL_WIDTH;
+	dst.h = BALL_HEIGHT;
 
 	// Set default direction
-	gBrickDirection.x = gBrickDirection.y = 3;
+	gBrickDirection.x = gBrickDirection.y = BALL_SPEED;
 
 	// Set default value racket
-	gRacket.x = WIDTH / 2;
-	gRacket.y = HEIGHT - 27;
-	gRacket.w = 180;
-	gRacket.h = 30;
+	gRacket.x = RACKET_X;
+	gRacket.y = RACKET_Y;
+	gRacket.w = RACKET_WIDTH;
+	gRacket.h = RACKET_HEIGHT;
 
 	for (int i = 0; i < NUMBER_OF_TARGET; i++) {
 		gTarget[i].x = i * 50;
-		gTarget[i].w = 50;
-		gTarget[i].h = 50;
+		gTarget[i].y = i * 50;
+		
+		gTarget[i].w = TARGET_WIDTH;
+		gTarget[i].h = TARGET_HEIGHT;
 	}
-
-	sourceRect.x = 0;
-	sourceRect.y = 0;
 }
 
 void Application::SetPoint()
@@ -131,7 +149,7 @@ void Application::Target() {
 
 void Application::Render() {
 	// set background color
-	SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+	SDL_SetRenderDrawColor(m_renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
 	SDL_RenderClear(m_renderer);
 
 	// copy a portion of the texture to the current rendering target.
@@ -140,21 +158,43 @@ void Application::Render() {
 
 	// copy a portion of the texture to the current rendering target.
 	dst.w = dst.h = 100;
-	SDL_RenderCopy(m_renderer, m_ball->m_texture, NULL, &dst);
+	//SDL_RenderCopy(m_renderer, m_ball->m_texture, NULL, &dst);
 	
+	// Sprites
+
+	//for (int i = 0; i < FIREBALL_FRAME_NUMBER; i++) {
+
+	//}
+
 	// draw racket
 	SDL_SetRenderDrawColor(m_renderer, 0, 255, 0, SDL_ALPHA_OPAQUE);
 	SDL_RenderFillRect(m_renderer, &gRacket);
+
+
+
 	for (int i = 0; i < NUMBER_OF_TARGET; i++) {
 		// draw target
 		SDL_SetRenderDrawColor(m_renderer, 0, 0, 255, SDL_ALPHA_OPAQUE);
 		SDL_RenderFillRect(m_renderer, &gTarget[i]);
 	}
+
+	RenderFrame(currentFrameIndex, dst.x, dst.y);
+
+	currentFrameIndex = (currentFrameIndex + 1) % 24;
 }
 
 void Application::Destroy() {
+
+	delete m_ball, m_music, m_sound;
+
+	//Destroy Audio
+	Mix_CloseAudio();
+	
 	//Destroy a window.
 	SDL_DestroyWindow(m_window);
+
+	//Destroy a renderer
+	SDL_DestroyRenderer(m_renderer);
 
 	//cleans up all initialized subsystems
 	SDL_Quit();
@@ -177,12 +217,12 @@ void Application::EventDriven()
 		{
 			if (mainEvent.key.keysym.sym == 'a') {
 				gRacket.x -= RACKET_SPEED;
-				//Sound::Sound();
+				m_sound->Play(3);
 				//printf("%c released\n", mainEvent.key.keysym.sym);
 			}
 			else if (mainEvent.key.keysym.sym == 'd') {
 				gRacket.x += RACKET_SPEED;
-
+				m_sound->Play(3);
 				//printf("%d",gRacket.x);
 			}
 			//break;
@@ -204,8 +244,11 @@ void Application::Update()
 }
 
 void Application::Run() {
+
 	while (isRunning)
 	{
+
+		///////////////////////////////
 		Render();
 
 		EventDriven();
@@ -217,5 +260,20 @@ void Application::Run() {
 		SDL_Delay(1000.0 / 60);
 	}
 	Destroy();
+}
+
+void Application::RenderFrame(int frameIndex, int x, int y)
+{
+	SDL_Rect srcRect;
+	srcRect.x = (frameIndex % 6) * 134;
+	srcRect.y = (frameIndex / 6) * 134;
+	srcRect.w = srcRect.h = 134;
+
+	SDL_Rect dstRect;
+	dstRect.x = x;
+	dstRect.y = y;
+	dstRect.w = dstRect.h = 134;
+
+	SDL_RenderCopy(m_renderer, m_SpriteFireBall->m_texture, &srcRect, &dstRect);
 }
 

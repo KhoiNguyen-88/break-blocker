@@ -16,6 +16,9 @@
     <Filter Include="Resource Files\Sound">
       <UniqueIdentifier>{6ea79ce9-ea54-40dd-a483-79869f213bcb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Music">
+      <UniqueIdentifier>{bdeab303-2edd-4a1f-b639-1daf63447260}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -33,12 +36,18 @@
     <ClCompile Include="..\src\Shared.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Music.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Image\bg.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="..\Image\magic_ball.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\data\fireball.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
@@ -59,6 +68,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Shared.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Music.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

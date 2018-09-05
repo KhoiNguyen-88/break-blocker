@@ -8,13 +8,35 @@ bool Sound::Load(const char * path)
 	if (m_chunk == NULL)
 	{
 		printf("%s", Mix_GetError());
-		return -1;
+		return false;
 	}
 
-	return false;
+	return true;
 }
 
-Sound::Sound() : m_chunk(NULL)
+void Sound::Play(int times)
+{
+	if (m_playChannel == -1)
+	{
+		m_playChannel = Mix_PlayChannel(times, m_chunk, 0);
+	}
+	else
+	{
+		if (!Mix_Playing(m_playChannel))
+			m_playChannel = Mix_PlayChannel(times, m_chunk, 0);
+	}
+}
+
+void Sound::Stop()
+{
+	if (m_playChannel != -1)
+	{
+		Mix_HaltChannel(m_playChannel);
+		m_playChannel = -1;
+	}
+}
+
+Sound::Sound() : m_chunk(NULL), m_playChannel(-1)
 {
 
 }

@@ -13,4 +13,5 @@
 #include "Shared.h"
 #include "Texture.h"
 #include "Sound.h"
+#include "Music.h"
 #include "Application.h"

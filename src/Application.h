@@ -10,8 +10,13 @@ private:
 	Texture* m_ball;
 	Texture* m_background;
 
+	Texture* m_SpriteFireBall;
+
+	// khai bao sound
 	Sound* m_sound;
 
+	// khai bao music
+	Music* m_music;
 
 	SDL_Event mainEvent;
 
@@ -26,6 +31,7 @@ private:
 
 	//khai bao su kien
 	bool isRunning = true;
+	int currentFrameIndex;
 
 public:
 	
@@ -51,6 +57,6 @@ public:
 
 	void Run();
 
-	
+	void RenderFrame(int frameIndex, int x, int y);
 };
 
