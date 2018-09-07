@@ -3,7 +3,7 @@
 #undef main
 
 int main() {
-
+	
 	Application* app = new Application();
 	
 	app->Init();
@@ -11,5 +11,9 @@ int main() {
 	app->Run();
 
 	delete app;
+
+
+	while (1);
 	return 0;
+
 }

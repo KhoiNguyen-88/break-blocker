@@ -53,10 +53,16 @@ void Application::Init() {
 	m_music->PlayMusic();
 	
 	// load sprite
-	m_SpriteFireBall = new Texture();
-	m_SpriteFireBall->Load("fireball.png");
+	//m_SpriteFireBall = new Texture();
+	//m_SpriteFireBall->Load("fireball.png");
 
-	currentFrameIndex = 0;
+	//currentFrameIndex = 0;
+
+
+	// load Block breaker sprite
+	m_BlockBreaker = new Sprite("Spirtes/sprites.png","Spirtes/Block.txt");
+
+	
 
 	// set default value for ball
 	dst.x = BALL_X;
@@ -157,26 +163,24 @@ void Application::Render() {
 	SDL_RenderCopy(m_renderer, m_background->m_texture, NULL, &bg);
 
 	// copy a portion of the texture to the current rendering target.
-	dst.w = dst.h = 100;
+	//dst.w = dst.h = 100;
 	//SDL_RenderCopy(m_renderer, m_ball->m_texture, NULL, &dst);
 	
 	// Sprites
 
-	//for (int i = 0; i < FIREBALL_FRAME_NUMBER; i++) {
-
-	//}
-
 	// draw racket
-	SDL_SetRenderDrawColor(m_renderer, 0, 255, 0, SDL_ALPHA_OPAQUE);
-	SDL_RenderFillRect(m_renderer, &gRacket);
-
-
+	//SDL_SetRenderDrawColor(m_renderer, 0, 255, 0, SDL_ALPHA_OPAQUE);
+	m_BlockBreaker->renderFrame(10,gRacket.x,gRacket.y);
+	//SDL_RenderFillRect(m_renderer, &gRacket);
 
 	for (int i = 0; i < NUMBER_OF_TARGET; i++) {
 		// draw target
 		SDL_SetRenderDrawColor(m_renderer, 0, 0, 255, SDL_ALPHA_OPAQUE);
 		SDL_RenderFillRect(m_renderer, &gTarget[i]);
+		//m_BlockBreaker->renderFrame(0,gTarget->x,gTarget->y);
 	}
+
+
 
 	RenderFrame(currentFrameIndex, dst.x, dst.y);
 
@@ -218,14 +222,11 @@ void Application::EventDriven()
 			if (mainEvent.key.keysym.sym == 'a') {
 				gRacket.x -= RACKET_SPEED;
 				m_sound->Play(3);
-				//printf("%c released\n", mainEvent.key.keysym.sym);
 			}
 			else if (mainEvent.key.keysym.sym == 'd') {
 				gRacket.x += RACKET_SPEED;
 				m_sound->Play(3);
-				//printf("%d",gRacket.x);
 			}
-			//break;
 		}
 		default:
 		{
@@ -247,8 +248,6 @@ void Application::Run() {
 
 	while (isRunning)
 	{
-
-		///////////////////////////////
 		Render();
 
 		EventDriven();
@@ -265,14 +264,14 @@ void Application::Run() {
 void Application::RenderFrame(int frameIndex, int x, int y)
 {
 	SDL_Rect srcRect;
-	srcRect.x = (frameIndex % 6) * 134;
-	srcRect.y = (frameIndex / 6) * 134;
-	srcRect.w = srcRect.h = 134;
+	srcRect.x = (frameIndex % 5) * FIREBALL_FRAME;
+	srcRect.y = (frameIndex / 5) * FIREBALL_FRAME;
+	srcRect.w = srcRect.h = FIREBALL_FRAME;
 
 	SDL_Rect dstRect;
 	dstRect.x = x;
 	dstRect.y = y;
-	dstRect.w = dstRect.h = 134;
+	dstRect.w = dstRect.h = FIREBALL_FRAME;
 
 	SDL_RenderCopy(m_renderer, m_SpriteFireBall->m_texture, &srcRect, &dstRect);
 }

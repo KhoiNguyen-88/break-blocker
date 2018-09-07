@@ -19,6 +19,21 @@
     <Filter Include="Resource Files\Music">
       <UniqueIdentifier>{bdeab303-2edd-4a1f-b639-1daf63447260}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\RapidJson">
+      <UniqueIdentifier>{535fa242-5a7a-4118-8924-dd2bd8d34cc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\RapidJson\error">
+      <UniqueIdentifier>{0ccb4e16-4cc6-4022-a576-34c3306838f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\RapidJson\internal">
+      <UniqueIdentifier>{2b5278cc-22a9-486f-af1e-15a2e97f7831}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\RapidJson\msinttypes">
+      <UniqueIdentifier>{99ed2216-9c88-490f-9e34-11b3b8573175}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Spirtes">
+      <UniqueIdentifier>{fa297eec-1689-4c75-8712-86b7f33ce142}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -39,6 +54,9 @@
     <ClCompile Include="..\src\Music.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Image\bg.png">
@@ -49,6 +67,9 @@
     </Image>
     <Image Include="..\data\fireball.png">
       <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\data\Spirtes\sprites.png">
+      <Filter>Resource Files\Spirtes</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +94,114 @@
     <ClInclude Include="..\src\Music.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Sprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\allocators.h">
+      <Filter>Source Files\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\document.h">
+      <Filter>Source Files\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\encodedstream.h">
+      <Filter>Source Files\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\encodings.h">
+      <Filter>Source Files\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\filereadstream.h">
+      <Filter>Source Files\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\filewritestream.h">
+      <Filter>Source Files\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\fwd.h">
+      <Filter>Source Files\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\istreamwrapper.h">
+      <Filter>Source Files\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\memorybuffer.h">
+      <Filter>Source Files\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\memorystream.h">
+      <Filter>Source Files\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\ostreamwrapper.h">
+      <Filter>Source Files\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\pointer.h">
+      <Filter>Source Files\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\prettywriter.h">
+      <Filter>Source Files\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\rapidjson.h">
+      <Filter>Source Files\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\reader.h">
+      <Filter>Source Files\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\schema.h">
+      <Filter>Source Files\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\stream.h">
+      <Filter>Source Files\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\stringbuffer.h">
+      <Filter>Source Files\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\writer.h">
+      <Filter>Source Files\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\error\en.h">
+      <Filter>Source Files\RapidJson\error</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\error\error.h">
+      <Filter>Source Files\RapidJson\error</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\internal\biginteger.h">
+      <Filter>Source Files\RapidJson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\internal\diyfp.h">
+      <Filter>Source Files\RapidJson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\internal\dtoa.h">
+      <Filter>Source Files\RapidJson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\internal\ieee754.h">
+      <Filter>Source Files\RapidJson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\internal\itoa.h">
+      <Filter>Source Files\RapidJson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\internal\meta.h">
+      <Filter>Source Files\RapidJson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\internal\pow10.h">
+      <Filter>Source Files\RapidJson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\internal\regex.h">
+      <Filter>Source Files\RapidJson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\internal\stack.h">
+      <Filter>Source Files\RapidJson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\internal\strfunc.h">
+      <Filter>Source Files\RapidJson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\internal\strtod.h">
+      <Filter>Source Files\RapidJson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\internal\swap.h">
+      <Filter>Source Files\RapidJson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\msinttypes\inttypes.h">
+      <Filter>Source Files\RapidJson\msinttypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rapidjson\msinttypes\stdint.h">
+      <Filter>Source Files\RapidJson\msinttypes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Media Include="..\data\Sound\smb_gameover.wav">
@@ -93,5 +222,10 @@
     <Media Include="..\data\Sound\smb_world_clear.wav">
       <Filter>Resource Files\Sound</Filter>
     </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\data\Spirtes\Block.txt">
+      <Filter>Resource Files\Spirtes</Filter>
+    </Text>
   </ItemGroup>
 </Project>

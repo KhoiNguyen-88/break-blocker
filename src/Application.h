@@ -12,6 +12,7 @@ private:
 
 	Texture* m_SpriteFireBall;
 
+	Sprite* m_BlockBreaker;
 	// khai bao sound
 	Sound* m_sound;
 
