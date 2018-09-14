@@ -30,3 +30,6 @@
 #define FIREBALL_FRAME 134
 #define FIREBALL_COLUMNS 6
 #define FIREBALL_ROWS 4
+
+// Frame for game
+#define FFS (1000.0 / 60)

@@ -8,7 +8,7 @@ int main() {
 	
 	app->Init();
 
-	app->Run();
+	app->Run(60);
 
 	delete app;
 

@@ -53,15 +53,15 @@ void Application::Init() {
 	m_music->PlayMusic();
 	
 	// load sprite
-	//m_SpriteFireBall = new Texture();
-	//m_SpriteFireBall->Load("fireball.png");
-
-	//currentFrameIndex = 0;
-
+	m_SpriteFireBall = new Texture();
+	m_SpriteFireBall->Load("fireball.png");
 
 	// load Block breaker sprite
 	m_BlockBreaker = new Sprite("Spirtes/sprites.png","Spirtes/Block.txt");
-
+		
+	m_anim = new Animation("Animation/Animation.png","Animation/Animation.txt");
+	m_anim->Play();
+	m_anim->SetFPS(10);
 	
 
 	// set default value for ball
@@ -173,14 +173,14 @@ void Application::Render() {
 	m_BlockBreaker->renderFrame(10,gRacket.x,gRacket.y);
 	//SDL_RenderFillRect(m_renderer, &gRacket);
 
+	m_anim->Render(150,150);
+
 	for (int i = 0; i < NUMBER_OF_TARGET; i++) {
 		// draw target
 		SDL_SetRenderDrawColor(m_renderer, 0, 0, 255, SDL_ALPHA_OPAQUE);
 		SDL_RenderFillRect(m_renderer, &gTarget[i]);
 		//m_BlockBreaker->renderFrame(0,gTarget->x,gTarget->y);
 	}
-
-
 
 	RenderFrame(currentFrameIndex, dst.x, dst.y);
 
@@ -235,28 +235,40 @@ void Application::EventDriven()
 	}
 }
 
-void Application::Update()
+void Application::Update(Uint32 dt)
 {
 	Brick();
 	CheckgBrickHitRacket();
 	CheckGameOver();
 	Target();
 	SetPoint();
+
+	m_anim->Update(dt);
 }
 
-void Application::Run() {
+void Application::Run(int fps) {
+	Uint32 frameTime = 1000.0f / fps;
+	Uint32 startTime = 0, endTime = 0, deltaTime = frameTime;
 
 	while (isRunning)
 	{
-		Render();
-
+		startTime = SDL_GetTicks();
+		
 		EventDriven();
-
-		Update();
-
+		Update(frameTime);
+		Render();
 		SDL_RenderPresent(m_renderer);
 
-		SDL_Delay(1000.0 / 60);
+		endTime = SDL_GetTicks();
+		deltaTime = endTime - startTime;
+
+		if (deltaTime < frameTime)
+		{
+			SDL_Delay(frameTime - deltaTime);
+			deltaTime = frameTime;
+		}
+
+		
 	}
 	Destroy();
 }

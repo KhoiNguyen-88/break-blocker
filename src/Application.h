@@ -34,6 +34,7 @@ private:
 	bool isRunning = true;
 	int currentFrameIndex;
 
+	Animation* m_anim;
 public:
 	
 	void Init();
@@ -50,13 +51,13 @@ public:
 
 	void EventDriven();
 
-	void Update();
+	void Update(Uint32 dt);
 
 	void Render();
 
 	void Destroy();
 
-	void Run();
+	void Run(int fps);
 
 	void RenderFrame(int frameIndex, int x, int y);
 };

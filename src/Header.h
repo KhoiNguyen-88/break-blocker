@@ -10,7 +10,6 @@
 #include "SDL.h"
 #include "SDL_image.h"
 #include "SDL_mixer.h"
-#include "rapidjson/document.h"
 
 #include "config.h"
 
@@ -19,4 +18,5 @@
 #include "Sound.h"
 #include "Music.h"
 #include "Sprite.h"
+#include "Animation.h"
 #include "Application.h"
