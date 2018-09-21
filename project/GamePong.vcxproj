@@ -124,7 +124,10 @@
   <ItemGroup>
     <ClCompile Include="..\src\Animation.cpp" />
     <ClCompile Include="..\src\Application.cpp" />
+    <ClCompile Include="..\src\GameOver.cpp" />
+    <ClCompile Include="..\src\GamePlay.cpp" />
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\MainMenu.cpp" />
     <ClCompile Include="..\src\Music.cpp" />
     <ClCompile Include="..\src\Shared.cpp" />
     <ClCompile Include="..\src\Sound.cpp" />
@@ -142,8 +145,12 @@
     <ClInclude Include="..\src\Animation.h" />
     <ClInclude Include="..\src\Application.h" />
     <ClInclude Include="..\src\config.h" />
+    <ClInclude Include="..\src\GameOver.h" />
+    <ClInclude Include="..\src\GamePlay.h" />
     <ClInclude Include="..\src\Header.h" />
+    <ClInclude Include="..\src\MainMenu.h" />
     <ClInclude Include="..\src\Music.h" />
+    <ClInclude Include="..\src\Scene.h" />
     <ClInclude Include="..\src\Shared.h" />
     <ClInclude Include="..\src\Sound.h" />
     <ClInclude Include="..\src\Sprite.h" />

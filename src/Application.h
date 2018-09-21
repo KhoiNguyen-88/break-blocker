@@ -3,62 +3,22 @@
 class Application
 {
 private:
-	SDL_Window * m_window;
-	SDL_Renderer* m_renderer;
+	SDL_Window*		m_window;
+	SDL_Renderer*	m_renderer;
 
-	// khai bao texture
-	Texture* m_ball;
-	Texture* m_background;
+	bool			m_isRunning;
 
-	Texture* m_SpriteFireBall;
+	Scene*			m_currentScene;
 
-	Sprite* m_BlockBreaker;
-	// khai bao sound
-	Sound* m_sound;
-
-	// khai bao music
-	Music* m_music;
-
-	SDL_Event mainEvent;
-
-	SDL_Rect sourceRect;
-	SDL_Rect dst;
-	SDL_Rect bg;
-
-	SDL_Rect  gRacket; 
-	SDL_Point gBrickDirection;
-
-	SDL_Rect gTarget[NUMBER_OF_TARGET];
-
-	//khai bao su kien
-	bool isRunning = true;
-	int currentFrameIndex;
-
-	Animation* m_anim;
 public:
-	
-	void Init();
+	Application();
 
-	void SetPoint();
+	void			Init();
 
-	void CheckgBrickHitRacket();
+	void			Destroy();
+	void			QueryEvents();
 
-	void Brick();
-
-	void CheckGameOver();
-
-	void Target();
-
-	void EventDriven();
-
-	void Update(Uint32 dt);
-
-	void Render();
-
-	void Destroy();
-
-	void Run(int fps);
-
-	void RenderFrame(int frameIndex, int x, int y);
+	void			Run(int fps);
+	void			SetStartScene(Scene* scene);
 };
 
