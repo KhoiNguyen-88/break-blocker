@@ -1,3 +1,2 @@
-﻿  Application.cpp
-c:\users\ceani\desktop\c++\gamepong\src\application.cpp(93): warning C4244: 'initializing': conversion from 'float' to 'Uint32', possible loss of data
+﻿  GamePlay.cpp
   GamePong.vcxproj -> C:\Users\ceani\Desktop\c++\GamePong\project\..\bin\GamePong.exe

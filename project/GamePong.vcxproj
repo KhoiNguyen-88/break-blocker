@@ -129,6 +129,7 @@
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\MainMenu.cpp" />
     <ClCompile Include="..\src\Music.cpp" />
+    <ClCompile Include="..\src\SceneManager.cpp" />
     <ClCompile Include="..\src\Shared.cpp" />
     <ClCompile Include="..\src\Sound.cpp" />
     <ClCompile Include="..\src\Sprite.cpp" />
@@ -136,7 +137,10 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\data\Animation\Animation.png" />
+    <Image Include="..\data\exit.jpg" />
     <Image Include="..\data\fireball.png" />
+    <Image Include="..\data\images.png" />
+    <Image Include="..\data\quit.png" />
     <Image Include="..\data\Spirtes\sprites.png" />
     <Image Include="..\Image\bg.png" />
     <Image Include="..\Image\magic_ball.bmp" />
@@ -151,6 +155,7 @@
     <ClInclude Include="..\src\MainMenu.h" />
     <ClInclude Include="..\src\Music.h" />
     <ClInclude Include="..\src\Scene.h" />
+    <ClInclude Include="..\src\SceneManager.h" />
     <ClInclude Include="..\src\Shared.h" />
     <ClInclude Include="..\src\Sound.h" />
     <ClInclude Include="..\src\Sprite.h" />

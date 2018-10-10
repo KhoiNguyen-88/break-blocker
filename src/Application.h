@@ -4,11 +4,9 @@ class Application
 {
 private:
 	SDL_Window*		m_window;
-	SDL_Renderer*	m_renderer;
+	//SDL_Renderer*	m_renderer;
 
-	bool			m_isRunning;
-
-	Scene*			m_currentScene;
+	//bool			m_isRunning;
 
 public:
 	Application();
@@ -19,6 +17,5 @@ public:
 	void			QueryEvents();
 
 	void			Run(int fps);
-	void			SetStartScene(Scene* scene);
 };
 

@@ -60,6 +60,9 @@
     <ClCompile Include="..\src\MainMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\SceneManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Image\bg.png">
@@ -76,6 +79,15 @@
     </Image>
     <Image Include="..\data\Animation\Animation.png">
       <Filter>Resource Files\Animation</Filter>
+    </Image>
+    <Image Include="..\data\exit.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\data\images.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\data\quit.png">
+      <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +128,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\src\MainMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\SceneManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

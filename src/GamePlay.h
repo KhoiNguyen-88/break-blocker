@@ -1,6 +1,7 @@
 #pragma once
 
 class GamePlay : public Scene {
+
 	// khai bao texture
 	Texture* m_ball;
 	Texture* m_background;
@@ -26,16 +27,17 @@ class GamePlay : public Scene {
 	int currentFrameIndex;
 
 	Animation* m_anim;
+
 public:
 	SDL_Rect m_button;
 
-	void init();
-	void update();
-	void render();
-	void destroy();
+	void Init() override;
+	void Update(Uint32 dt) override;
+	void Render() override;
+	void Destroy() override;
+
 	GamePlay();
 
-private:
 	void SetPoint();
 
 	void CheckgBrickHitRacket();
@@ -47,4 +49,7 @@ private:
 	void Target();
 
 	void RenderFrame(int frameIndex, int x, int y);
+
+	virtual void HandleKeyEvent(int key, bool state) override;
+	virtual void HandleMouseEvent(int x, int y, int button) override;
 };

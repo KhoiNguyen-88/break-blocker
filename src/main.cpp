@@ -7,7 +7,7 @@ int main() {
 	Application* app = new Application();
 
 	app->Init();
-	app->SetStartScene(new MainMenu());
+	SCENE_MGR->ChangeScene(new MainMenu());
 
 	app->Run(60);
 

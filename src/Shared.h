@@ -4,5 +4,6 @@ class Shared
 {
 public:
 	static SDL_Renderer* m_renderer;
+	static bool isRunning;
 };
 

@@ -1,6 +1,6 @@
 #include "Header.h"
 
-Application::Application() : m_window(NULL), m_renderer(NULL), m_currentScene(NULL)
+Application::Application() : m_window(NULL)
 {
 }
 
@@ -31,13 +31,12 @@ void Application::Init() {
 		SDL_Log("%s", Mix_GetError());
 	}
 
-	m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED);
-	if (m_renderer == NULL)
+	Shared::m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED);
+	if (Shared::m_renderer == NULL)
 	{
 		SDL_Log("Unable to init renderer. Error: %s", SDL_GetError());
 	}
 
-	Shared::m_renderer = m_renderer;
 }
 
 void Application::Destroy()
@@ -49,7 +48,7 @@ void Application::Destroy()
 	SDL_DestroyWindow(m_window);
 
 	//Destroy a renderer
-	SDL_DestroyRenderer(m_renderer);
+	SDL_DestroyRenderer(Shared::m_renderer);
 
 	//cleans up all initialized subsystems
 	SDL_Quit();
@@ -66,12 +65,17 @@ void Application::QueryEvents()
 			//User - requested quit
 			case SDL_QUIT:
 			{
-				m_isRunning = false;
+				Shared::isRunning = false;
 				break;
 			}
 			case SDL_KEYDOWN:
 			{
-				m_currentScene->HandleKeyEvent(mainEvent.key.keysym.sym, true);
+				SCENE_MGR->HandleKeyEvent(mainEvent.key.keysym.sym, true);
+				break;
+			}
+			case SDL_MOUSEBUTTONDOWN:
+			{
+				SCENE_MGR->HandleMouseEvent(mainEvent.motion.x,mainEvent.motion.y,true);
 				break;
 			}
 			default:
@@ -82,37 +86,29 @@ void Application::QueryEvents()
 }
 
 void Application::Run(int fps) {
-	if (m_currentScene == NULL)
-	{
-		SDL_Log("# Error: No start scene");
-		Destroy();
-		
-		return;
-	}
-
 	Uint32 frameTime = 1000.0f / fps;
 	Uint32 startTime = 0, endTime = 0, deltaTime = frameTime;
 
-	m_isRunning = true;
+	Shared::isRunning = true;
 
-	while (m_isRunning)
+	while (Shared::isRunning)
 	{
 		startTime = SDL_GetTicks();
 		
 		QueryEvents();
 
 		// *****
-		m_currentScene->Update(frameTime);
+		SCENE_MGR->Update(frameTime);
 		// *****
 		
-		SDL_SetRenderDrawColor(m_renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
-		SDL_RenderClear(m_renderer);
+		SDL_SetRenderDrawColor(Shared::m_renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+		SDL_RenderClear(Shared::m_renderer);
 
 		// *****
-		m_currentScene->Render();
+		SCENE_MGR->Render();
 		// *****
 
-		SDL_RenderPresent(m_renderer);
+		SDL_RenderPresent(Shared::m_renderer);
 
 		endTime = SDL_GetTicks();
 		deltaTime = endTime - startTime;
@@ -125,10 +121,3 @@ void Application::Run(int fps) {
 	}
 	Destroy();
 }
-
-void Application::SetStartScene(Scene * scene)
-{
-	m_currentScene = scene;
-	m_currentScene->Init();
-}
-
